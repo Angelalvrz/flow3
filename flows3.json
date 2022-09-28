@@ -1,0 +1,113 @@
+[
+    {
+        "id": "61773614fd4aca56",
+        "type": "tab",
+        "label": "Flow 3 -  Tablero fecha",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c0895344d1261a1e",
+        "type": "inject",
+        "z": "61773614fd4aca56",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 310,
+        "y": 100,
+        "wires": [
+            [
+                "41c5a41cc72a3210"
+            ]
+        ]
+    },
+    {
+        "id": "41c5a41cc72a3210",
+        "type": "function",
+        "z": "61773614fd4aca56",
+        "name": "function 1",
+        "func": "var date = new Date(msg.payload);\nmsg.payload = date.toString();\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 120,
+        "wires": [
+            [
+                "cd2ce85df5aa2551",
+                "10a8cf6dcfa881ae"
+            ]
+        ]
+    },
+    {
+        "id": "cd2ce85df5aa2551",
+        "type": "debug",
+        "z": "61773614fd4aca56",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "10a8cf6dcfa881ae",
+        "type": "ui_text",
+        "z": "61773614fd4aca56",
+        "group": "738c95b414f8e439",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "LA fecha y hora actua es:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 770,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "738c95b414f8e439",
+        "type": "ui_group",
+        "name": "Fecha formato legible",
+        "tab": "1f437d9508bcf2c6",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1f437d9508bcf2c6",
+        "type": "ui_tab",
+        "name": "Flow 3 - Fecha",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
